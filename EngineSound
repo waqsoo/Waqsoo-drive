@@ -1,0 +1,23 @@
+using UnityEngine;
+
+[RequireComponent(typeof(AudioSource))]
+public class EngineSound : MonoBehaviour
+{
+    public Rigidbody car;
+    public AudioSource engineAudio;
+
+    public float minPitch = 0.8f;
+    public float maxPitch = 2.0f;
+
+    void Start()
+    {
+        if (engineAudio == null)
+            engineAudio = GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+        float speed = car.velocity.magnitude;
+        engineAudio.pitch = Mathf.Lerp(minPitch, maxPitch, speed / 60f);
+    }
+}
