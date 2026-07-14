@@ -1,0 +1,14 @@
+using UnityEngine;
+
+public class SettingsManager : MonoBehaviour
+{
+    public void SetVolume(float volume)
+    {
+        AudioListener.volume = volume;
+    }
+
+    public void SetQuality(int quality)
+    {
+        QualitySettings.SetQualityLevel(quality);
+    }
+}
