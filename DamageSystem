@@ -1,0 +1,16 @@
+using UnityEngine;
+
+public class DamageSystem : MonoBehaviour
+{
+    public int health = 100;
+
+    void OnCollisionEnter(Collision collision)
+    {
+        health -= 10;
+
+        if (health <= 0)
+        {
+            Debug.Log("Car Destroyed!");
+        }
+    }
+}
