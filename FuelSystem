@@ -1,0 +1,20 @@
+using UnityEngine;
+
+public class FuelSystem : MonoBehaviour
+{
+    public float fuel = 100f;
+    public float fuelUse = 0.5f;
+
+    void Update()
+    {
+        if (fuel > 0)
+        {
+            fuel -= fuelUse * Time.deltaTime;
+        }
+
+        if (fuel < 0)
+        {
+            fuel = 0;
+        }
+    }
+}
