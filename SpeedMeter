@@ -1,0 +1,14 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SpeedMeter : MonoBehaviour
+{
+    public Rigidbody car;
+    public Text speedText;
+
+    void Update()
+    {
+        float speed = car.velocity.magnitude * 3.6f;
+        speedText.text = "KM/H : " + speed.ToString("0");
+    }
+}
