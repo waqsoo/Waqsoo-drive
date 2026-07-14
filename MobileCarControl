@@ -1,0 +1,54 @@
+using UnityEngine;
+
+public class MobileCarControl : MonoBehaviour
+{
+    public float speed = 30f;
+    public float turnSpeed = 80f;
+
+    float moveInput;
+    float turnInput;
+
+    Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+        rb.AddForce(transform.forward * moveInput * speed);
+
+        transform.Rotate(0, turnInput * turnSpeed * Time.fixedDeltaTime, 0);
+    }
+
+    public void GasButton()
+    {
+        moveInput = 1;
+    }
+
+    public void BrakeButton()
+    {
+        moveInput = -1;
+    }
+
+    public void StopMove()
+    {
+        moveInput = 0;
+    }
+
+    public void LeftButton()
+    {
+        turnInput = -1;
+    }
+
+    public void RightButton()
+    {
+        turnInput = 1;
+    }
+
+    public void StopTurn()
+    {
+        turnInput = 0;
+    }
+}
