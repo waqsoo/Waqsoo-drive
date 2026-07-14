@@ -1,0 +1,39 @@
+using UnityEngine;
+
+public class NitroSystem : MonoBehaviour
+{
+    public float nitroPower = 50f;
+    public float nitroTime = 3f;
+
+    Rigidbody rb;
+    bool nitroActive = false;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N) && !nitroActive)
+        {
+            StartCoroutine(NitroBoost());
+        }
+    }
+
+    System.Collections.IEnumerator NitroBoost()
+    {
+        nitroActive = true;
+
+        float timer = 0;
+
+        while(timer < nitroTime)
+        {
+            rb.AddForce(transform.forward * nitroPower);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        nitroActive = false;
+    }
+}
