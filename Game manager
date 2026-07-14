@@ -1,0 +1,13 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+{
+    public Text gameNameText;
+
+    void Start()
+    {
+        gameNameText.text = "PHARERO";
+        Debug.Log("Welcome To PHARERO");
+    }
+}
