@@ -1,0 +1,14 @@
+using UnityEngine;
+
+public class CarLights : MonoBehaviour
+{
+    public Light headlights;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            headlights.enabled = !headlights.enabled;
+        }
+    }
+}
