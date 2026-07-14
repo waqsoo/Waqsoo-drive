@@ -1,0 +1,16 @@
+using UnityEngine;
+
+public class TrafficManager : MonoBehaviour
+{
+    public GameObject[] trafficCars;
+    public Transform[] spawnPoints;
+
+    void Start()
+    {
+        foreach (Transform point in spawnPoints)
+        {
+            int randomCar = Random.Range(0, trafficCars.Length);
+            Instantiate(trafficCars[randomCar], point.position, point.rotation);
+        }
+    }
+}
