@@ -1,0 +1,17 @@
+using UnityEngine;
+
+public class CoinCollector : MonoBehaviour
+{
+    public int coins = 0;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            coins++;
+            Destroy(other.gameObject);
+
+            Debug.Log("Coins: " + coins);
+        }
+    }
+}
