@@ -1,0 +1,22 @@
+using UnityEngine;
+
+public class CarDrift : MonoBehaviour
+{
+    public float driftPower = 0.95f;
+
+    Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 velocity = transform.InverseTransformDirection(rb.velocity);
+
+        velocity.x *= driftPower;
+
+        rb.velocity = transform.TransformDirection(velocity);
+    }
+}
